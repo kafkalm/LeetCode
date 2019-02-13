@@ -14,5 +14,15 @@ def nextPermutation(nums):
     :type nums: List[int]
     :rtype: void Do not return anything, modify nums in-place instead.
     """
-    for i in range(len(nums)):
-        if nums[len(nums)-1-i] > nums[len(nums)-2-i]
+    for i in range(len(nums)-2,-1,-1):
+        for j in range(len(nums)-1,i,-1):
+            if nums[j] > nums[i]:
+                nums[j],nums[i] = nums[i],nums[j]
+                nums[i+1:] = sorted(nums[i+1:])
+                return nums
+
+    nums.sort()
+    return
+
+nums = [1,3,2]
+print(nextPermutation(nums))
