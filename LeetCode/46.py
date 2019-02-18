@@ -68,6 +68,7 @@ def permute(nums):
                 num.reverse()
                 nums[i:] = num
                 break
+    out.sort()
     return out
 
 #递归法
@@ -84,5 +85,7 @@ def permute_2(nums,begin,end):
         nums[i],nums[begin] = nums[begin],nums[i]
         permute_2(nums,begin+1,end)
         nums[i], nums[begin] = nums[begin], nums[i]
-print(permute([1,1,2]))
-permute_2([1,1,2],0,3)
+    return out
+
+print(permute([1,2,3]))
+# permute_2([1,1,2],0,3)
